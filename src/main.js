@@ -43,6 +43,9 @@ import TreeSelect from '@/components/TreeSelect'
 // 字典标签组件
 import DictTag from '@/components/DictTag'
 
+import {initNopApp} from '@/nop/initNopApp'
+
+
 const app = createApp(App)
 
 // 全局方法挂载
@@ -79,5 +82,7 @@ app.use(ElementPlus, {
   // 支持 large、default、small
   size: Cookies.get('size') || 'default'
 })
+
+initNopApp(app)
 
 app.mount('#app')

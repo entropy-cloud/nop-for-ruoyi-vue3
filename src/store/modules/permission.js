@@ -5,6 +5,8 @@ import Layout from '@/layout/index'
 import ParentView from '@/components/ParentView'
 import InnerLink from '@/layout/components/InnerLink'
 
+import AmisPage from '@/nop/amis/AmisPage'
+
 // 匹配views里面所有的.vue文件
 const modules = import.meta.glob('./../../views/**/*.vue')
 
@@ -69,6 +71,9 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
         route.component = ParentView
       } else if (route.component === 'InnerLink') {
         route.component = InnerLink
+      }else if(route.component === 'AMIS'){
+        route.component = AmisPage
+        route.props = JSON.parse(route.query)
       } else {
         route.component = loadView(route.component)
       }
